@@ -40,7 +40,7 @@ class Characteres extends Component {
       };
     
     async componentDidMount() {
-        const url = "http://www.omdbapi.com/?s=batman&apikey=5e6dd51&type=movie";
+        const url = "https://www.omdbapi.com/?s=batman&apikey=5e6dd51&type=movie";
         // const url1 = "https://www.breakingbadapi.com/api/episodes"
         const response = await fetch(url);
         // const response1 = await fetch(url1);
@@ -54,10 +54,10 @@ class Characteres extends Component {
     var increment = this.state.count +1
     let url3
     if(this.state.searchTerm === ''){
-        url3 = "http://www.omdbapi.com/?s=batman&apikey=5e6dd51&type=movie&page="+increment
+        url3 = "https://www.omdbapi.com/?s=batman&apikey=5e6dd51&type=movie&page="+increment
     }
     else{
-        url3 = "http://www.omdbapi.com/?s="+this.state.searchTerm+"&apikey=5e6dd51&type=movie&page="+increment
+        url3 = "https://www.omdbapi.com/?s="+this.state.searchTerm+"&apikey=5e6dd51&type=movie&page="+increment
     }
     this.setState({ count:increment }) 
     if(increment !==1){
@@ -82,10 +82,10 @@ class Characteres extends Component {
     let url3
     this.setState({ count:decrement }) 
     if(this.state.searchTerm === ''){
-        url3 = "http://www.omdbapi.com/?s=batman&apikey=5e6dd51&type=movie&page="+decrement
+        url3 = "https://www.omdbapi.com/?s=batman&apikey=5e6dd51&type=movie&page="+decrement
     }
     else{
-        url3 = "http://www.omdbapi.com/?s="+this.state.searchTerm+"&apikey=5e6dd51&type=movie&page="+decrement
+        url3 = "https://www.omdbapi.com/?s="+this.state.searchTerm+"&apikey=5e6dd51&type=movie&page="+decrement
     }
     fetch(url3)
       .then(res => res.json())
@@ -101,25 +101,8 @@ class Characteres extends Component {
       )
   }
 
-  quote(name){
-    name = name.replace(" ", "+")
-    const url3 = "https://www.breakingbadapi.com/api/quote?author="+name
-    fetch(url3)
-      .then(res => res.json())
-      .then(
-        (result) => {
-            this.setState({quote:result})
-        },
-        (error) => {
-          this.setState({
-            quote:[]
-          });
-        }
-      )
-}
-
   modelHandler = (i) => {
-    const url3 = "http://www.omdbapi.com/?t="+this.state.people.Search[i].Title+"&apikey=5e6dd51&plot=short"
+    const url3 = "https://www.omdbapi.com/?t="+this.state.people.Search[i].Title+"&apikey=5e6dd51&plot=short"
     fetch(url3)
       .then(res => res.json())
       .then(
@@ -165,7 +148,7 @@ class Characteres extends Component {
   goSearch = () => {
     console.log(this.state.searchTerm)
     if(this.state.searchTerm ===''){
-        const url3 = "http://www.omdbapi.com/?s=batman&apikey=5e6dd51&type=movie"
+        const url3 = "https://www.omdbapi.com/?s=batman&apikey=5e6dd51&type=movie"
     fetch(url3)
       .then(res => res.json())
       .then(
@@ -184,7 +167,7 @@ class Characteres extends Component {
         var st = this.state.searchTerm;
         if(st.length >= 3)
         {   this.setState({error:''})
-            const url3 = "http://www.omdbapi.com/?s="+this.state.searchTerm+"&apikey=5e6dd51&type=movie"
+            const url3 = "https://www.omdbapi.com/?s="+this.state.searchTerm+"&apikey=5e6dd51&type=movie"
             fetch(url3)
             .then(res => res.json())
             .then(
